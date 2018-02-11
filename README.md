@@ -1,6 +1,10 @@
-# vue-router-vuex
+# Vue-Router Vuex Example
 
-> A sample Vue Router/Vuex application
+> An example application using vue-router with vuex
+
+![Screenshot](screenshot.png)
+
+The app uses the [Toronto Open Data](https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/) [Green P Parking dataset](https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/transportation/#8f2835cf-2312-1fea-1768-93df75cd2de4).
 
 ## Build Setup
 
