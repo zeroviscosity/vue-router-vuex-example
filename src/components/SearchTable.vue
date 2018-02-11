@@ -54,10 +54,30 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
-  name: 'Parking',
+  name: 'SearchTable',
+  props: {
+    currentQuery: {
+      type: Object,
+      default: () => {}
+    },
+    locations: {
+      type: Array,
+      default: () => []
+    },
+    updateQuery: {
+      type: Function,
+      default: () => () => {}
+    },
+    search: {
+      type: Function,
+      default: () => () => {}
+    },
+    clear: {
+      type: Function,
+      default: () => () => {}
+    }
+  },
   data: () => ({
     categories: ['Garage', 'Surface'],
     headers: [
@@ -76,32 +96,11 @@ export default {
         value: 'rate_half_hour'
       }
     ],
-    rowsPerPage: [10, 20, 30, { text: 'All', value: -1 }],
-    query: {}
+    rowsPerPage: [10, 20, 30, { text: 'All', value: -1 }]
   }),
-  computed: {
-    ...mapGetters({
-      currentQuery: 'parking/query',
-      locations: 'parking/locations'
-    })
-  },
-  created() {
-    this.$store.dispatch('parking/getData');
-  },
   methods: {
     getMapUrl(loc) {
       return `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}`;
-    },
-    search() {
-      const query = Object.assign({}, this.currentQuery, this.query);
-      this.$router.push({ query });
-    },
-    clear() {
-      this.query = {};
-      this.$router.push({ query: this.query });
-    },
-    updateQuery(key, val) {
-      this.query[key] = val;
     }
   }
 };

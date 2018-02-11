@@ -1,15 +1,31 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Parking from '@/components/Parking';
+import Home from '@/components/Home';
+import ParkingClientSide from '@/components/ParkingClientSide';
+import ParkingServerSide from '@/components/ParkingServerSide';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'Green P Parking Locations in Toronto',
-      component: Parking
+      component: Home
+    },
+    {
+      path: '/client-side',
+      name: 'Green P Parking Locations in Toronto: Client-side Processing',
+      component: ParkingClientSide
+    },
+    {
+      path: '/server-side',
+      name: 'Green P Parking Locations in Toronto: Server-side Processing',
+      component: ParkingServerSide
+    },
+    {
+      path: '*',
+      redirect: '/home'
     }
   ]
 });
