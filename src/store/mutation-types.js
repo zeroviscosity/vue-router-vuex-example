@@ -1,0 +1,2 @@
+export const SET_PARKING_DATA = 'SET_PARKING_DATA';
+export const SET_GARBAGE_DATA = 'SET_GARBAGE_DATA';
