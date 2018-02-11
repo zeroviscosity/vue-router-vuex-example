@@ -1,7 +1,7 @@
 <template>
   <SearchTable
     :current-query="currentQuery"
-    :locations="locations"
+    :lots="lots"
     :update-query="updateQuery"
     :search="search"
     :clear="clear"
@@ -13,7 +13,7 @@ import { mapGetters } from 'vuex';
 import SearchTable from './SearchTable';
 
 export default {
-  name: 'ParkingClientSide',
+  name: 'ClientSide',
   components: {
     SearchTable
   },
@@ -22,12 +22,12 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      currentQuery: 'parking/query',
-      locations: 'parking/locations'
+      currentQuery: 'clientSide/query',
+      lots: 'clientSide/lots'
     })
   },
   created() {
-    this.$store.dispatch('parking/getData');
+    this.$store.dispatch('clientSide/getLots');
   },
   methods: {
     search() {

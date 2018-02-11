@@ -19,7 +19,7 @@
           label="Max Rate"
           type="number"
           step="0.25"
-          min="0"
+          min="0.75"
           max="3"
           :value="currentQuery.maxRate"
           @blur="updateQuery('maxRate', $event.target.value)"
@@ -34,7 +34,7 @@
       <v-flex xs9>
         <v-data-table
             :headers="headers"
-            :items="locations"
+            :items="lots"
             :rows-per-page-items="rowsPerPage"
             class="elevation-1"
             >
@@ -61,7 +61,7 @@ export default {
       type: Object,
       default: () => {}
     },
-    locations: {
+    lots: {
       type: Array,
       default: () => []
     },

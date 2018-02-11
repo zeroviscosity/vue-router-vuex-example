@@ -1,2 +1,2 @@
-export const SET_PARKING_DATA = 'SET_PARKING_DATA';
-export const SET_GARBAGE_DATA = 'SET_GARBAGE_DATA';
+export const SET_CLIENT_DATA = 'SET_CLIENT_DATA';
+export const SET_SERVER_DATA = 'SET_SERVER_DATA';

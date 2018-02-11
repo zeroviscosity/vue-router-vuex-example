@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-  getData() {
+  getLots() {
     return axios.get('/static/parking.json');
   }
 };

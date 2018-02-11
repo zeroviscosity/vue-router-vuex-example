@@ -1,7 +1,7 @@
 <template>
   <v-app id="app">
     <v-toolbar dark color="primary white--text" app>
-      <v-toolbar-title>{{ $route.name }}</v-toolbar-title>
+      <v-toolbar-title>Green P Parking Lots in Toronto</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
       <v-toolbar-items class="hidden-sm-and-down">
