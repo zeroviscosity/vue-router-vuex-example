@@ -1,4 +1,4 @@
-# Vue-Router Vuex Example
+# Vue-Router/Vuex Example
 
 > An example application using vue-router with vuex
 
