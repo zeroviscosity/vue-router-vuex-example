@@ -2,14 +2,14 @@
   <SearchTable
     :current-query="currentQuery"
     :lots="lots"
-    :update-query="updateQuery"
+    :update-query="updateLocalQuery"
     :search="search"
-    :clear="clear"
+    :clear="clearQuery"
     ></SearchTable>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import SearchTable from './SearchTable';
 
 export default {
@@ -22,23 +22,25 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      currentQuery: 'clientSide/query',
+      currentQuery: 'query',
       lots: 'clientSide/lots'
     })
   },
   created() {
-    this.$store.dispatch('clientSide/getLots');
+    this.getLots();
   },
   methods: {
+    ...mapActions({
+      getLots: 'clientSide/getLots'
+    }),
+    ...mapActions([
+      'clearQuery',
+      'updateQuery'
+    ]),
     search() {
-      const query = Object.assign({}, this.currentQuery, this.query);
-      this.$router.push({ query });
+      this.updateQuery(this.query);
     },
-    clear() {
-      this.query = {};
-      this.$router.push({ query: this.query });
-    },
-    updateQuery(key, val) {
+    updateLocalQuery(key, val) {
       this.query[key] = val;
     }
   }

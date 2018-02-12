@@ -11,8 +11,7 @@ export default {
 
   // Getters
   getters: {
-    lots: state => state.lots,
-    query: (state, getters, rootState) => rootState.route.query
+    lots: state => state.lots
   },
 
   // Actions

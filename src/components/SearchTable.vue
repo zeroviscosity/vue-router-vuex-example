@@ -79,7 +79,7 @@ export default {
     }
   },
   data: () => ({
-    categories: ['Garage', 'Surface'],
+    categories: ['', 'Garage', 'Surface'],
     headers: [
       {
         text: 'Address',

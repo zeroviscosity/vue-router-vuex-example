@@ -2,9 +2,9 @@
   <SearchTable
     :current-query="currentQuery"
     :lots="lots"
-    :update-query="updateQuery"
+    :update-query="updateLocalQuery"
     :search="search"
-    :clear="clear"
+    :clear="clearQuery"
     ></SearchTable>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      currentQuery: 'serverSide/query',
+      currentQuery: 'query',
       lots: 'serverSide/lots'
     })
   },
@@ -32,21 +32,20 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('serverSide/getLots', this.currentQuery);
+    this.getLots(this.currentQuery);
   },
   methods: {
     ...mapActions({
       getLots: 'serverSide/getLots'
     }),
+    ...mapActions([
+      'clearQuery',
+      'updateQuery'
+    ]),
     search() {
-      const query = Object.assign({}, this.currentQuery, this.query);
-      this.$router.push({ query });
+      this.updateQuery(this.query);
     },
-    clear() {
-      this.query = {};
-      this.$router.push({ query: {} });
-    },
-    updateQuery(key, val) {
+    updateLocalQuery(key, val) {
       this.query[key] = val;
     }
   }

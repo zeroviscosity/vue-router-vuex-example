@@ -1,5 +1,6 @@
 import api from '@/api/client-side';
 import { SET_CLIENT_DATA } from '@/store/mutation-types';
+import filterLots from '@/util/filter-lots';
 
 export default {
   namespaced: true,
@@ -15,21 +16,8 @@ export default {
       const query = rootState.route && rootState.route.query ?
         rootState.route.query : {};
 
-      const address = query.address ?
-        query.address.toLowerCase() : '';
-      const category = query.category ?
-        query.category.toLowerCase() : '';
-      const maxRate = query.maxRate ?
-        parseFloat(query.maxRate) : Infinity;
-
-      return state.lots.filter(lot => (
-        lot.address.toLowerCase().includes(address) &&
-          lot.carpark_type.includes(category) &&
-          lot.rate_half_hour <= maxRate &&
-          lot.rate_half_hour
-      ));
-    },
-    query: (state, getters, rootState) => rootState.route.query
+      return filterLots(state.lots, query);
+    }
   },
 
   // Actions
