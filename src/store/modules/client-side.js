@@ -24,16 +24,16 @@ export default {
   actions: {
     getLots: ({ commit }) => (
       api.getLots()
-        .then((resp) => {
-          commit(SET_CLIENT_DATA, resp);
+        .then((lots) => {
+          commit(SET_CLIENT_DATA, lots);
         })
     )
   },
 
   // Mutations
   mutations: {
-    [SET_CLIENT_DATA](state, { data }) {
-      state.lots = data.carparks;
+    [SET_CLIENT_DATA](state, lots) {
+      state.lots = lots;
     }
   }
 };
