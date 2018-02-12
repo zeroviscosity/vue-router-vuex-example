@@ -16,12 +16,15 @@ export default {
 
   // Actions
   actions: {
-    getLots: ({ commit }, query) => (
+    getLots: ({ commit, rootState }) => {
+      const query = rootState.route && rootState.route.query ?
+        rootState.route.query : {};
+
       api.getLots(query)
         .then((lots) => {
           commit(SET_SERVER_DATA, lots);
-        })
-    )
+        });
+    }
   },
 
   // Mutations

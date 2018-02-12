@@ -27,12 +27,12 @@ export default {
     })
   },
   watch: {
-    currentQuery(val) {
-      this.getLots(val);
+    currentQuery() {
+      this.getLots();
     }
   },
   created() {
-    this.getLots(this.currentQuery);
+    this.getLots();
   },
   methods: {
     ...mapActions({
