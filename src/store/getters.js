@@ -10,14 +10,14 @@ export default {
     switch (rootState.route.name) {
       case 'ClientSide':
         query.category = query.category !== undefined ?
-          query.category : 'Surface';
+          query.category : 'surface';
         break;
       case 'ServerSide':
         query.category = query.category !== undefined ?
-          query.category : 'Garage';
+          query.category : 'garage';
         break;
       default:
-        query.category = query.category || null;
+        query.category = query.category || 'all';
     }
 
     return query;

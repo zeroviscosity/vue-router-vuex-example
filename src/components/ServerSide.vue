@@ -4,7 +4,7 @@
     :lots="lots"
     :update-query="updateLocalQuery"
     :search="search"
-    :clear="clear"
+    :reset="reset"
     ></SearchTable>
 </template>
 
@@ -26,6 +26,7 @@ export default {
       lots: 'serverSide/lots'
     })
   },
+  // This watch is the only difference between this component and ClientSide.
   watch: {
     currentQuery() {
       this.getLots();
@@ -42,7 +43,7 @@ export default {
       'clearQuery',
       'updateQuery'
     ]),
-    clear() {
+    reset() {
       this.query = {};
       this.clearQuery();
     },

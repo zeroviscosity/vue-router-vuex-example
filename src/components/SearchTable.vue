@@ -28,8 +28,8 @@
             @click="search"
             >search</v-btn>
           <v-btn
-            @click="clear"
-            >clear</v-btn>
+            @click="reset"
+            >reset</v-btn>
       </v-flex>
       <v-flex xs9>
         <v-data-table
@@ -73,13 +73,26 @@ export default {
       type: Function,
       default: () => () => {}
     },
-    clear: {
+    reset: {
       type: Function,
       default: () => () => {}
     }
   },
   data: () => ({
-    categories: ['', 'Garage', 'Surface'],
+    categories: [
+      {
+        text: 'All Categories',
+        value: 'all'
+      },
+      {
+        text: 'Garage',
+        value: 'garage'
+      },
+      {
+        text: 'Surface',
+        value: 'surface'
+      }
+    ],
     headers: [
       {
         text: 'Address',

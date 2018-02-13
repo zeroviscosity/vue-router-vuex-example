@@ -1,7 +1,7 @@
 export default function (lots, query) {
   const address = query.address ?
     query.address.toLowerCase() : '';
-  const category = query.category ?
+  const category = query.category && query.category !== 'all' ?
     query.category.toLowerCase() : '';
   const maxRate = query.maxRate ?
     parseFloat(query.maxRate) : Infinity;
