@@ -12,12 +12,9 @@ export default {
 
   // Getters
   getters: {
-    lots: (state, getters, rootState) => {
-      const query = rootState.route && rootState.route.query ?
-        rootState.route.query : {};
-
-      return filterLots(state.lots, query);
-    }
+    lots: (state, getters, rootState, rootGetters) => (
+      filterLots(state.lots, rootGetters.query)
+    )
   },
 
   // Actions
