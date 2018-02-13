@@ -4,7 +4,7 @@
     :lots="lots"
     :update-query="updateLocalQuery"
     :search="search"
-    :clear="clearQuery"
+    :clear="clear"
     ></SearchTable>
 </template>
 
@@ -42,6 +42,10 @@ export default {
       'clearQuery',
       'updateQuery'
     ]),
+    clear() {
+      this.query = {};
+      this.clearQuery();
+    },
     search() {
       this.updateQuery(this.query);
     },
